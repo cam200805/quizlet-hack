@@ -40,13 +40,11 @@ function qb_selectCorrectAnswer(answer){
 		}
 	})
 }
-function qb_mainLoop(answers){
-	return () => {
-		var answer = qb_getCorrectAnswer(answers);
-		if (!answer){
-			return;
-		}
-		qb_selectCorrectAnswer(answer);
+function qb_mainLoop(answers){return () => {
+	var answer = qb_getCorrectAnswer(answers);
+	if (!answer){
+		return;
 	}
-}
+	qb_selectCorrectAnswer(answer);
+}}
 setInterval(qb_mainLoop(qb_generateAllAnswerPairs()), 1000);
