@@ -2,6 +2,7 @@ function qb_canShiftLeft(){}
 function qb_canShiftRight(){}
 function qb_shiftLeft(){}
 function qb_shiftRight(){}
+function qb_getCorrectAnswer(answers){}
 
 function qb_generateSetOfAnswerPairs(){
 	var map = {};
@@ -31,13 +32,20 @@ function qb_generateAllAnswerPairs(){
 	}
 	return finalMap;
 }
+function qb_selectCorrectAnswer(answer){
+	document.getElementsByClassName("NewStudentAnswerOptions").forEach((el) => {
+		if (el.textContent == answer){
+			el.click();
+		}
+	})
+}
 function qb_mainLoop(answers){
 	return () => {
-		if (!qb_answerElementExists()){
+		var answer = qb_getCorrectAnswer(answers);
+		if (!answer){
 			return;
 		}
-		qb_selectCorrectAnswer(answers);
-		document.getElementsByClassName("NewStudentAnswerOptions").forEach((e) => {})
+		qb_selectCorrectAnswer(answer);
 	}
 }
 setInterval(qb_mainLoop(qb_generateAllAnswerPairs()), 1000);
