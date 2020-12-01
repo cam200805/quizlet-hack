@@ -1,8 +1,19 @@
-function qb_canShiftLeft(){}
-function qb_canShiftRight(){}
-function qb_shiftLeft(){}
-function qb_shiftRight(){}
-function qb_getCorrectAnswer(answers){}
+function qb_canShiftLeft(){
+	return document.getElementByClassName("someclassidkwhatitis")[0].classList.contains('someotherclass');
+}
+function qb_canShiftRight(){
+	return document.getElementByClassName("someclassidkwhatitis")[1].classList.contains('someotherclass');
+}
+function qb_shiftLeft(){
+	document.getElementByClassName("someclassidkwhatitis")[0].click();
+}
+function qb_shiftRight(){
+	document.getElementByClassName("someclassidkwhatitis")[1].click();
+}
+
+function qb_getCorrectAnswer(answers){
+	return answers[document.getElementByClassName("someclassidkwhatitis")[1].innerText];
+}
 
 function qb_generateSetOfAnswerPairs(){
 	var map = {};
@@ -17,6 +28,7 @@ function qb_generateSetOfAnswerPairs(){
 	})
 	return map;
 }
+
 function qb_generateAllAnswerPairs(){
 	while (qb_canShiftLeft()){
 		qb_shiftLeft();
@@ -33,6 +45,7 @@ function qb_generateAllAnswerPairs(){
 	}
 	return finalMap;
 }
+
 function qb_selectCorrectAnswer(answer){
 	document.getElementsByClassName("NewStudentAnswerOptions").forEach((el) => {
 		if (el.textContent == answer){
@@ -40,6 +53,7 @@ function qb_selectCorrectAnswer(answer){
 		}
 	})
 }
+
 function qb_mainLoop(answers){return () => {
 	var answer = qb_getCorrectAnswer(answers);
 	if (!answer){
