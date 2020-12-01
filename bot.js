@@ -25,6 +25,7 @@ function qb_generateAllAnswerPairs(){
 	var finalMap = {};
 	while (qb_canShiftRight()){
 		var map = qb_generateSetOfAnswerPairs();
+		// merge map into finalMap
 		for (var key in map){
 			finalMap[key] = map;
 		}
