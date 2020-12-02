@@ -9,8 +9,8 @@ Create a bookmark with the following url:
 After you enter the code for a quizlet live game, but before it starts, click the bookmark to load the bot.
 ### Tampermonkey/Greasemonkey/etc
 
-Tampermonkey: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+Tampermonkey (Chrome): https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
-Greasemonkey: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
+Greasemonkey (Firefox): https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
 
 After you've installed the extension, go to https://github.com/Pandapip1/quizlet-bot/raw/main/quizlet-bot.user.js and click install.
