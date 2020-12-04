@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quizlet bot
 // @namespace    https://pandapip1.tk/
-// @version      0.1
+// @version      0.1.1
 // @description  A bot for Quizlet Live
 // @author       Pandapip1
 // @match        https://quizlet.com/live
