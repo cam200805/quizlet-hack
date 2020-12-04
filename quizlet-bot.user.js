@@ -15,7 +15,7 @@ $("button").click((() => {
         qb_userTriggered = true;
         setTimeout(() => {
             var script = document.createElement('script');
-            script.src = "https://raw.githubusercontent.com/Pandapip1/quizlet-bot/main/bot.js";
+            script.src = "https://cdn.jsdelivr.net/gh/pandapip1/quizlet-bot/bot.js";
             document.head.appendChild(script);
         }, 1000); // give it time to load
     }
