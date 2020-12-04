@@ -9,6 +9,7 @@
 // @updateUrl    https://pandapip1.github.io/quizlet-bot/quizlet-bot.user.js
 // @grant        none
 // ==/UserScript==
+(() => {
 var qb_userTriggered = false;
 
 var qb_script_jquery = document.createElement('script');
@@ -28,3 +29,4 @@ qb_script_jquery.onload = () => {
         }
     }));
 }
+})();
