@@ -1,18 +1,18 @@
 function qb_canShiftLeft(){
-	return document.getElementByClassName("someclassidkwhatitis")[0].classList.contains('someotherclass');
+	return document.getElementsByClassName("someclassidkwhatitis")[0].classList.contains('someotherclass');
 }
 function qb_canShiftRight(){
-	return document.getElementByClassName("someclassidkwhatitis")[1].classList.contains('someotherclass');
+	return document.getElementsByClassName("someclassidkwhatitis")[1].classList.contains('someotherclass');
 }
 function qb_shiftLeft(){
-	document.getElementByClassName("someclassidkwhatitis")[0].click();
+	document.getElementsByClassName("someclassidkwhatitis")[0].click();
 }
 function qb_shiftRight(){
-	document.getElementByClassName("someclassidkwhatitis")[1].click();
+	document.getElementsByClassName("someclassidkwhatitis")[1].click();
 }
 
 function qb_getCorrectAnswer(answers){
-	return answers[document.getElementByClassName("someclassidkwhatitis")[1].innerText];
+	return answers[document.getElementsByClassName("someclassidkwhatitis")[1].innerText];
 }
 
 function qb_generateSetOfAnswerPairs(){
