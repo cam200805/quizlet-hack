@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quizlet bot
 // @namespace    https://pandapip1.tk/
-// @version      0.1.5
+// @version      0.1.6
 // @description  A bot for Quizlet Live
 // @author       Pandapip1
 // @match        https://quizlet.com/live
@@ -14,12 +14,12 @@
     var qb_userTriggered = false;
     var qb_script = document.createElement('script');
     qb_script.src = "https://pandapip1.github.io/quizlet-bot/bot.js";
-    $("button").click(() => {
-        if (!qb_userTriggered){
+    $(".UIButton").click(() => {
+        if (!qb_userTriggered && document.getElementsByClassName("someclass").length != 0){
             qb_userTriggered = true;
             setTimeout(() => {
                 document.head.appendChild(qb_script);
-            }, 1000); // give it time to load
+            }, 150); // give it time to load
         }
     });
 })();
