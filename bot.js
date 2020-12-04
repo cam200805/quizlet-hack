@@ -61,4 +61,7 @@ function qb_mainLoop(answers){return () => {
 	}
 	qb_selectCorrectAnswer(answer);
 }}
+if (window.location.URL == "https://pandapip1.github.io/quizlet-bot/"){
+	alert("Drag the link to the bookmarks bar to create the bookmarklet."); // The user clicked on the bookmarklet creation link instead of dragging it
+}
 setInterval(qb_mainLoop(qb_generateAllAnswerPairs()), 1000);
