@@ -8,7 +8,7 @@
 // @downloadUrl  https://pandapip1.github.io/quizlet-bot/quizlet-bot.user.js
 // @updateUrl    https://pandapip1.github.io/quizlet-bot/quizlet-bot.user.js
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
-// @grant  GM_addStyle
+// @grant        GM_addStyle
 // ==/UserScript==
 (() => {
     var qb_userTriggered = false;
