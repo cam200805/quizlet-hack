@@ -5,8 +5,8 @@
 // @description  A bot for Quizlet Live
 // @author       Pandapip1
 // @match        https://quizlet.com/live
-// @downloadUrl  https://github.com/Pandapip1/quizlet-bot/raw/main/quizlet-bot.user.js
-// @updateUrl    https://github.com/Pandapip1/quizlet-bot/raw/main/quizlet-bot.user.js
+// @downloadUrl  https://cdn.jsdelivr.net/gh/pandapip1/quizlet-bot/quizlet-bot.user.js
+// @updateUrl    https://cdn.jsdelivr.net/gh/pandapip1/quizlet-bot/quizlet-bot.user.js
 // @grant        none
 // ==/UserScript==
 var qb_userTriggered = false;
