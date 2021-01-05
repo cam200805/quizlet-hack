@@ -1,14 +1,14 @@
 function qb_canShiftLeft(){
-	return document.getElementsByClassName("someclassidkwhatitis")[0].classList.contains('someotherclass');
+	return document.getElementsByClassName("UIIcon--arrow-left")[0].length != 0;
 }
 function qb_canShiftRight(){
-	return document.getElementsByClassName("someclassidkwhatitis")[1].classList.contains('someotherclass');
+	return document.getElementsByClassName("UIIcon--arrow-right")[0].length != 0;
 }
 function qb_shiftLeft(){
-	document.getElementsByClassName("someclassidkwhatitis")[0].click();
+	document.getElementsByClassName("UIIcon--arrow-left")[0].click();
 }
 function qb_shiftRight(){
-	document.getElementsByClassName("someclassidkwhatitis")[1].click();
+	document.getElementsByClassName("UIIcon--arrow-right")[0].click();
 }
 
 function qb_getCorrectAnswer(answers){
