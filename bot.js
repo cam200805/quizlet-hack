@@ -12,7 +12,7 @@ function qb_shiftRight(){
 }
 
 function qb_getCorrectAnswer(answers){
-	return answers[document.getElementsByClassName("StudentPrompt-text")[1].innerText];
+	return answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
 }
 
 function qb_generateSetOfAnswerPairs(){
