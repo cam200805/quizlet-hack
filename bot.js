@@ -18,7 +18,7 @@ function qb_getCorrectAnswer(answers){
 function qb_generateSetOfAnswerPairs(){
 	var map = {};
 	var toggle = false;
-	document.getElementsByClassName("FormattedTextWithImage").forEach((e) => {
+	document.getElementsByClassName("StudentAnswerOption-text").forEach((e) => {
 		if (toggle){
 			map[toggle] = e.innerText;
 			toggle = false;
