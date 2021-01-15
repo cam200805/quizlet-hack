@@ -1,8 +1,8 @@
 function qb_canShiftLeft(){
-	return document.getElementsByClassName("UIIcon--arrow-left")[0].length != 0;
+	return document.getElementsByClassName("UIIcon--arrow-left").length != 0;
 }
 function qb_canShiftRight(){
-	return document.getElementsByClassName("UIIcon--arrow-right")[0].length != 0;
+	return document.getElementsByClassName("UIIcon--arrow-right").length != 0;
 }
 function qb_shiftLeft(){
 	document.getElementsByClassName("UIIcon--arrow-left")[0].click();
