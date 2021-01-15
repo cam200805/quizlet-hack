@@ -33,7 +33,6 @@ function qb_generateAllAnswerPairs(){
 	while (qb_canShiftLeft()){
 		qb_shiftLeft();
 	}
-	qb_shiftFarLeft();
 	var finalMap = {};
 	while (qb_canShiftRight()){
 		var map = qb_generateSetOfAnswerPairs();
