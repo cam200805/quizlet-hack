@@ -6,7 +6,7 @@ function qb_canShiftLeft(){
 	return !$(".previousButton span button").disabled
 }
 function qb_canShiftRight(){
-	return !$(".previousButton span button").disabled
+	return !$(".nextButton span button").disabled
 }
 function qb_shiftLeft(){
 	$(".previousButton span button").click()
