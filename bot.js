@@ -30,17 +30,19 @@ async function qb_generateAllAnswerPairs($){
 	} while ($(".progressIndex").innerText.split("/")[0] != $(".progressIndex").innerText.split("/")[1])
 	return finalMap;
 }
-function qb_mainLoop(answers, $){return () => {
-	let answer = answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
-	if (!answer){
-		return;
-	}
-	document.getElementsByClassName("NewStudentAnswerOptions").forEach((el) => {
-		if (el.textContent == answer){
-			el.click();
+function qb_mainLoop(answers, $){
+	return () => {
+		let answer = answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
+		if (!answer){
+			return;
 		}
-	})
-}}
+		document.getElementsByClassName("NewStudentAnswerOptions").forEach((el) => {
+			if (el.textContent == answer){
+				el.click();
+			}
+		})
+	}
+}
 if (window.location.hostname == "quizlet.com"){
 	(async ($) => {setInterval(b_mainLoop(await qb_generateAllAnswerPairs($),$),1000);})($)
 } else if (window.location.hostname == "pandapip1.github.io"){
