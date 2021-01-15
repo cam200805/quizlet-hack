@@ -29,7 +29,6 @@ function qb_generateSetOfAnswerPairs(){
 		} else {
 			toggle = e.innerText;
 		}
-		await qb_sleep(1000);
 	})
 	return map;
 }
