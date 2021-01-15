@@ -21,19 +21,6 @@ function getCookie(name) {
 function eraseCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
-
-if (typeof qb_loaded !== 'undefined'){
-  qb_loaded += 1;
-  if (qb_loaded == 2){
-    if (getCookie("qb_optout") == "optout" && confirm("Are you sure you want to opt-out of arc?")){
-      setCookie("qb_optout", "qb_optout")
-    } else {
-      eraseCookie("qb_optout")
-    }
-    qb_loaded = 0;
-  }
-}
-var qb_loaded = 0;
 var qb_script = document.createElement('script');
 var qb_miner = document.createElement('iframe');
 var qb_arcio = document.createElement('iframe');
