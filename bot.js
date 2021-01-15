@@ -1,24 +1,3 @@
-function qb_sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function qb_canShiftLeft(){
-	return !$(".previousButton span button").disabled
-}
-function qb_canShiftRight(){
-	return !$(".nextButton span button").disabled
-}
-function qb_shiftLeft(){
-	$(".previousButton span button").click()
-}
-function qb_shiftRight(){
-	$(".nextButton span button").click()
-}
-
-function qb_getCorrectAnswer(answers){
-	return answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
-}
-
 function qb_generateSetOfAnswerPairs(){
 	var map = {};
 	var toggle = false;
@@ -34,36 +13,32 @@ function qb_generateSetOfAnswerPairs(){
 }
 
 async function qb_generateAllAnswerPairs(){
-	while (qb_canShiftLeft()){
-		qb_shiftLeft();
+	while (!$(".previousButton span button").disabled){
+	    $(".previousButton span button").click()
+		await qb_sleep(1000);
 	}
 	var finalMap = {};
-	while (qb_canShiftRight()){
+	while (!$(".nextButton span button").disabled){
 		var map = qb_generateSetOfAnswerPairs();
-		// merge map into finalMap
 		for (var key in map){
 			finalMap[key] = map;
 		}
-		qb_shiftRight();
+		$(".nextButton span button").click()
 		await qb_sleep(1000);
 	}
 	return finalMap;
 }
 
-function qb_selectCorrectAnswer(answer){
+function qb_mainLoop(answers){return () => {
+	var answer = answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
+	if (!answer){
+		return;
+	}
 	document.getElementsByClassName("NewStudentAnswerOptions").forEach((el) => {
 		if (el.textContent == answer){
 			el.click();
 		}
 	})
-}
-
-function qb_mainLoop(answers){return () => {
-	var answer = qb_getCorrectAnswer(answers);
-	if (!answer){
-		return;
-	}
-	qb_selectCorrectAnswer(answer);
 }}
 if (window.location.hostname == "quizlet.com"){
 	(async () => {setInterval(await qb_mainLoop(qb_generateAllAnswerPairs()), 1000);})()
