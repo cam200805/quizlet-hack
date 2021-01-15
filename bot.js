@@ -19,7 +19,7 @@ function qb_getCorrectAnswer(answers){
 	return answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
 }
 
-async function qb_generateSetOfAnswerPairs(){
+function qb_generateSetOfAnswerPairs(){
 	var map = {};
 	var toggle = false;
 	document.getElementsByClassName("FormattedTextWithImage").forEach((e) => {
@@ -34,7 +34,7 @@ async function qb_generateSetOfAnswerPairs(){
 	return map;
 }
 
-function qb_generateAllAnswerPairs(){
+async function qb_generateAllAnswerPairs(){
 	while (qb_canShiftLeft()){
 		qb_shiftLeft();
 	}
@@ -46,6 +46,7 @@ function qb_generateAllAnswerPairs(){
 			finalMap[key] = map;
 		}
 		qb_shiftRight();
+		await qb_sleep(1000);
 	}
 	return finalMap;
 }
