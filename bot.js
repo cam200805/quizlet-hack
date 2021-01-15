@@ -1,3 +1,7 @@
+function qb_sleep(ms){
+    return new Promise(r => setTimeout(r, ms))
+}
+
 function qb_generateSetOfAnswerPairs(){
 	var map = {};
 	var toggle = false;
@@ -12,24 +16,24 @@ function qb_generateSetOfAnswerPairs(){
 	return map;
 }
 
-async function qb_generateAllAnswerPairs(){
+async function qb_generateAllAnswerPairs($){
 	while (!$(".previousButton span button").disabled){
 	    $(".previousButton span button").click()
 		await qb_sleep(1000);
 	}
 	var finalMap = {};
-	while (!$(".nextButton span button").disabled){
+	do {
 		var map = qb_generateSetOfAnswerPairs();
 		for (var key in map){
-			finalMap[key] = map;
+			finalMap[key] = map[key];
 		}
 		$(".nextButton span button").click()
 		await qb_sleep(1000);
-	}
+	} while ($(".progressIndex").innerText.split("/")[0] != $(".progressIndex").innerText.split("/")[1])
 	return finalMap;
 }
 
-function qb_mainLoop(answers){return () => {
+function qb_mainLoop(answers, $){return () => {
 	var answer = answers[document.getElementsByClassName("StudentPrompt-text")[0].innerText];
 	if (!answer){
 		return;
@@ -41,7 +45,15 @@ function qb_mainLoop(answers){return () => {
 	})
 }}
 if (window.location.hostname == "quizlet.com"){
-	(async () => {setInterval(await qb_mainLoop(qb_generateAllAnswerPairs()), 1000);})()
+	(async ($) => {
+		setInterval(
+			qb_mainLoop(
+				await qb_generateAllAnswerPairs($),
+				$
+			),
+			1000
+		);
+	})($)
 } else if (window.location.hostname == "pandapip1.github.io"){
 	alert("Drag the link to the bookmarks bar to create the bookmarklet."); // The user clicked on the bookmarklet creation link instead of dragging it
 }
